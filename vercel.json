@@ -1,27 +1,38 @@
 {
-    "builds": [{
-        "src": "djangoReactTest3/wsgi.py",
-        "use": "@vercel/python",
-        "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
+  "version": 2,
+  "builds": [
+    {
+      "src": "djangoReactTest3/wsgi.py",
+      "use": "@vercel/python",
+      "config": {
+        "maxLambdaSize": "15mb",
+        "runtime": "python3.9"
+      }
+    },
+    {
+      "src": "package.json",
+      "use": "@vercel/node"
     },
     {
       "src": "build_files.sh",
       "use": "@vercel/static-build",
       "config": {
-          "distDir": "staticfiles"
-        }
+        "distDir": "staticfiles"
       }
-    ],
-
-    "routes": [
-        {
-            "src": "/staticfiles/(.*)",
-            "dest": "/staticfiles/$1"
-        },
-        {
-            "src": "/(.*)",
-            "dest": "djangoReactTest3/wsgi.py"
-        }
-    ],
-    "outputDirectory": "staticfiles"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/static/ (.*)",
+      "dest": "/static/$1"
+    },
+    {
+      "src": "/api/ (.*)",
+      "dest": "/api/$1"
+    },
+    {
+      "src": "/ (.*)",
+      "dest": "/index.html"
+    }
+  ]
 }
