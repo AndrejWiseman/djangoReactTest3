@@ -8,14 +8,14 @@
       "src": "build_files.sh",
       "use": "@vercel/static-build",
       "config": {
-          "distDir": "frontend/build/static"
+          "distDir": "staticfiles"
         }
       }
     ],
 
     "routes": [
         {
-            "src": "/frontend/build/static/(.*)",
+            "src": "/staticfiles/(.*)",
             "dest": "/staticfiles/$1"
         },
         {
