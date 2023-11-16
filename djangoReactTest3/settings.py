@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
     # own
     'proba.apps.ProbaConfig',
+    'core.apps.CoreConfig',
 
     # third_party
     'rest_framework',
@@ -64,7 +65,8 @@ ROOT_URLCONF = 'djangoReactTest3.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates']
+        # 'DIRS': [BASE_DIR / 'templates']
+        'DIRS': [os.path.join(BASE_DIR, 'frontend', 'build')]
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -129,7 +131,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [BASE_DIR/'static']
+# STATICFILES_DIRS = [BASE_DIR/'static']
 STATIC_ROOT = BASE_DIR/'staticfiles'
 
 MEDIA_URL = 'img/'
@@ -143,3 +145,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
 ]
+
+REST_FRAMEWORK = {
+     'DEFAULT_RENDERER_CLASSES': (
+         'rest_framework.renderers.JSONRenderer',
+     )
+ }
+
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'frontend', 'build', 'static')]
