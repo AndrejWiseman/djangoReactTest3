@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     # own
     'proba.apps.ProbaConfig',
     'core.apps.CoreConfig',
+    'frontend',
 
     # third_party
     'rest_framework',
