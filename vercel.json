@@ -8,14 +8,14 @@
       "src": "build_files.sh",
       "use": "@vercel/static-build",
       "config": {
-          "distDir": "staticfiles"
+          "distDir": "frontend/build/static"
         }
       }
     ],
 
     "routes": [
         {
-            "src": "/staticfiles/(.*)",
+            "src": "/frontend/build/static/(.*)",
             "dest": "/staticfiles/$1"
         },
         {
@@ -23,5 +23,5 @@
             "dest": "djangoReactTest3/wsgi.py"
         }
     ],
-    "outputDirectory": "staticfiles"
+    "outputDirectory": "frontend/build/static"
 }
