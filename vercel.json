@@ -23,5 +23,5 @@
             "dest": "djangoReactTest3/wsgi.py"
         }
     ],
-    "outputDirectory": "frontend/build/static"
+    "outputDirectory": "staticfiles"
 }
